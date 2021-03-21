@@ -5,7 +5,8 @@
 运行环境: Python3.6(Miniconda3)+OpenCV3，IDE：PyCharm
 
 环境安装：
-pip install imutils
+pip install -r requirements.txt
+
 
 
 参考博客：
