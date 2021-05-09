@@ -8,7 +8,7 @@ from PIL import Image, ImageDraw, ImageFont
 
 
 class VideoReadThread(QThread):
-    signalFrame = pyqtSignal(object, object)
+    signalFrame = pyqtSignal(object, object, int)
     signalFailed = pyqtSignal(str)
 
     def __init__(self, parent=None):
@@ -38,7 +38,7 @@ class VideoReadThread(QThread):
             self.work = True
             self.capture = cv2.VideoCapture(self.video_path)
             success, frame = self.capture.read()
-            self.signalFrame.emit(frame, frame)
+            self.signalFrame.emit(frame, frame, 0)
             while True:
                 if not self.work:
                     if self.capture.isOpened():
@@ -52,6 +52,6 @@ class VideoReadThread(QThread):
                 if count > 0:
                     text = "行人碰撞预警({}人)".format(count)
                     image = self.drawText(text, image)
-                self.signalFrame.emit(frame, image)
+                self.signalFrame.emit(frame, image, count)
         except Exception as err:
             self.signalFailed.emit(str(err))

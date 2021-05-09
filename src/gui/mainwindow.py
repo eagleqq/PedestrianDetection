@@ -8,7 +8,8 @@ from cv2 import cv2
 from src.detect.peopledetect import PeopleDetect
 from src.gui import ui_mainwindow
 from src.threads.videoreadthread import VideoReadThread
-
+from PIL import Image, ImageDraw, ImageFont
+import numpy as np
 
 class PDMainWindow(QMainWindow, ui_mainwindow.Ui_MainWindow):
     def __init__(self):
@@ -68,6 +69,10 @@ class PDMainWindow(QMainWindow, ui_mainwindow.Ui_MainWindow):
                 frame = cv2.imread(fileName)
                 self.showImgToLabel(frame, 1)
                 orig, image, count = self.people_detect.detectImg(fileName)
+                self.lcdNumber.display(count)
+                if count > 0:
+                    text = "行人碰撞预警({}人)".format(count)
+                    image = self.drawText(text, image)
                 self.showImgToLabel(image, 2)
         elif self.radioButton_video.isChecked():
             fileName, fileType = QFileDialog.getOpenFileName(
@@ -98,9 +103,10 @@ class PDMainWindow(QMainWindow, ui_mainwindow.Ui_MainWindow):
             self.videoReadThread.threadStop()
             self.pushButton_run.setText("打开摄像头")
 
-    def slotVideoDetect(self, frame, retFrame):
+    def slotVideoDetect(self, frame, retFrame, count):
         self.showImgToLabel(frame, 1)
         self.showImgToLabel(retFrame, 2)
+        self.lcdNumber.display(count)
 
     def mousePressEvent(self, event):
         if event.button() == Qt.LeftButton:
@@ -117,3 +123,12 @@ class PDMainWindow(QMainWindow, ui_mainwindow.Ui_MainWindow):
     def mouseReleaseEvent(self, QMouseEvent):
         self.m_flag = False
         self.setCursor(QCursor(Qt.ArrowCursor))
+
+    def drawText(self, text, img):
+        cv2img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+        pilimg = Image.fromarray(cv2img)
+        draw = ImageDraw.Draw(pilimg)
+        font = ImageFont.truetype("SimHei.ttf", 20, encoding="utf-8")
+        draw.text((100, 50), text, (255, 0, 0), font=font)
+        cv2charimg = cv2.cvtColor(np.array(pilimg), cv2.COLOR_RGB2BGR)
+        return cv2charimg
