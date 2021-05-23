@@ -7,57 +7,40 @@
     <x>0</x>
     <y>0</y>
     <width>1184</width>
-    <height>836</height>
+    <height>833</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color: rgb(31, 1, 94);</string>
+   <string notr="true"># background-color: rgb(31, 1, 94);</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="verticalLayout_5">
     <item>
-     <widget class="QGroupBox" name="groupBox_3">
+     <widget class="QLCDNumber" name="lcdNumber">
       <property name="minimumSize">
        <size>
         <width>0</width>
-        <height>85</height>
+        <height>100</height>
        </size>
       </property>
       <property name="maximumSize">
        <size>
         <width>16777215</width>
-        <height>85</height>
+        <height>100</height>
        </size>
       </property>
+      <property name="layoutDirection">
+       <enum>Qt::LeftToRight</enum>
+      </property>
       <property name="styleSheet">
-       <string notr="true">color: rgb(255, 255, 255);
-background-color: rgb(31, 1, 94);
-font: 75 14pt &quot;Aharoni&quot;;</string>
+       <string notr="true">color: rgb(255, 0, 0);</string>
       </property>
-      <property name="title">
-       <string/>
+      <property name="smallDecimalPoint">
+       <bool>false</bool>
       </property>
-      <layout class="QHBoxLayout" name="horizontalLayout_4">
-       <item>
-        <widget class="QLabel" name="label_3">
-         <property name="styleSheet">
-          <string notr="true"/>
-         </property>
-         <property name="text">
-          <string>行人安全检测系统</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignCenter</set>
-         </property>
-         <property name="margin">
-          <number>10</number>
-         </property>
-        </widget>
-       </item>
-      </layout>
      </widget>
     </item>
     <item>
@@ -69,282 +52,48 @@ font: 75 14pt &quot;Aharoni&quot;;</string>
        </size>
       </property>
       <property name="styleSheet">
-       <string notr="true">color: rgb(255, 255, 255);
-background-color: rgb(31, 1, 94);
+       <string notr="true">/*color: rgb(255, 255, 255);
+background-color: rgb(31, 1, 94);*/
 font: 75 10pt &quot;Aharoni&quot;;</string>
       </property>
       <property name="title">
        <string>显示区域</string>
       </property>
-      <layout class="QVBoxLayout" name="verticalLayout_4">
+      <layout class="QHBoxLayout" name="horizontalLayout">
        <item>
-        <widget class="QLCDNumber" name="lcdNumber">
-         <property name="minimumSize">
-          <size>
-           <width>0</width>
-           <height>100</height>
-          </size>
-         </property>
+        <widget class="QLabel" name="label_img1">
          <property name="maximumSize">
           <size>
            <width>16777215</width>
-           <height>100</height>
+           <height>16777215</height>
           </size>
          </property>
-         <property name="layoutDirection">
-          <enum>Qt::LeftToRight</enum>
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(0, 0, 0);</string>
          </property>
-         <property name="smallDecimalPoint">
-          <bool>false</bool>
+         <property name="text">
+          <string/>
          </property>
         </widget>
        </item>
        <item>
-        <layout class="QHBoxLayout" name="horizontalLayout_2">
-         <item>
-          <widget class="QLabel" name="label_img1">
-           <property name="minimumSize">
-            <size>
-             <width>500</width>
-             <height>0</height>
-            </size>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>500</width>
-             <height>16777215</height>
-            </size>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">background-color: rgb(0, 0, 0);</string>
-           </property>
-           <property name="text">
-            <string>原始画面</string>
-           </property>
-           <property name="alignment">
-            <set>Qt::AlignCenter</set>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QLabel" name="label_img2">
-           <property name="minimumSize">
-            <size>
-             <width>500</width>
-             <height>0</height>
-            </size>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>500</width>
-             <height>16777215</height>
-            </size>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">background-color: rgb(0, 0, 0);</string>
-           </property>
-           <property name="text">
-            <string>识别画面</string>
-           </property>
-           <property name="alignment">
-            <set>Qt::AlignCenter</set>
-           </property>
-          </widget>
-         </item>
-        </layout>
+        <widget class="QLabel" name="label_img2">
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(0, 0, 0);</string>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
        </item>
       </layout>
      </widget>
-    </item>
-    <item>
-     <layout class="QHBoxLayout" name="horizontalLayout_3">
-      <item>
-       <widget class="QGroupBox" name="groupBox_4">
-        <property name="styleSheet">
-         <string notr="true">color: rgb(255, 255, 255);
-background-color: rgb(31, 1, 94);
-font: 75 10pt &quot;Aharoni&quot;;</string>
-        </property>
-        <property name="title">
-         <string>算法选择</string>
-        </property>
-        <layout class="QVBoxLayout" name="verticalLayout">
-         <item>
-          <widget class="QRadioButton" name="radioButton_hog">
-           <property name="text">
-            <string>HOG + SVM</string>
-           </property>
-           <property name="checked">
-            <bool>true</bool>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QRadioButton" name="radioButton_yolo">
-           <property name="text">
-            <string>YOLO</string>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </widget>
-      </item>
-      <item>
-       <widget class="QGroupBox" name="groupBox_5">
-        <property name="styleSheet">
-         <string notr="true">color: rgb(255, 255, 255);
-background-color: rgb(31, 1, 94);
-font: 75 10pt &quot;Aharoni&quot;;</string>
-        </property>
-        <property name="title">
-         <string>类型选择</string>
-        </property>
-        <layout class="QVBoxLayout" name="verticalLayout_3">
-         <item>
-          <widget class="QRadioButton" name="radioButton_img">
-           <property name="minimumSize">
-            <size>
-             <width>0</width>
-             <height>30</height>
-            </size>
-           </property>
-           <property name="text">
-            <string>图片文件</string>
-           </property>
-           <property name="checked">
-            <bool>true</bool>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QRadioButton" name="radioButton_video">
-           <property name="minimumSize">
-            <size>
-             <width>0</width>
-             <height>30</height>
-            </size>
-           </property>
-           <property name="text">
-            <string>视频文件</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QRadioButton" name="radioButton_cam">
-           <property name="minimumSize">
-            <size>
-             <width>0</width>
-             <height>30</height>
-            </size>
-           </property>
-           <property name="text">
-            <string>摄像头</string>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </widget>
-      </item>
-      <item>
-       <widget class="QGroupBox" name="groupBox">
-        <property name="maximumSize">
-         <size>
-          <width>16777215</width>
-          <height>132</height>
-         </size>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">color: rgb(255, 255, 255);
-background-color: rgb(31, 1, 94);
-font: 75 10pt &quot;Aharoni&quot;;</string>
-        </property>
-        <property name="title">
-         <string/>
-        </property>
-        <layout class="QVBoxLayout" name="verticalLayout_2">
-         <item>
-          <layout class="QHBoxLayout" name="horizontalLayout">
-           <item>
-            <widget class="QLabel" name="label">
-             <property name="minimumSize">
-              <size>
-               <width>0</width>
-               <height>30</height>
-              </size>
-             </property>
-             <property name="text">
-              <string>文件路径</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QLineEdit" name="lineEdit_path">
-             <property name="minimumSize">
-              <size>
-               <width>0</width>
-               <height>38</height>
-              </size>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">color: rgb(255, 0, 0);</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QPushButton" name="pushButto_select">
-             <property name="minimumSize">
-              <size>
-               <width>0</width>
-               <height>38</height>
-              </size>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">background-color: rgb(85, 170, 255);</string>
-             </property>
-             <property name="text">
-              <string>选择文件</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QPushButton" name="pushButton_run">
-             <property name="minimumSize">
-              <size>
-               <width>0</width>
-               <height>38</height>
-              </size>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">background-color: rgb(85, 170, 255);</string>
-             </property>
-             <property name="text">
-              <string>打开摄像头</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QPushButton" name="pushButton_close">
-             <property name="minimumSize">
-              <size>
-               <width>0</width>
-               <height>38</height>
-              </size>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">background-color: rgb(85, 170, 255);
-</string>
-             </property>
-             <property name="text">
-              <string>退出系统</string>
-             </property>
-            </widget>
-           </item>
-          </layout>
-         </item>
-        </layout>
-       </widget>
-      </item>
-     </layout>
     </item>
    </layout>
   </widget>
@@ -357,8 +106,103 @@ font: 75 10pt &quot;Aharoni&quot;;</string>
      <height>26</height>
     </rect>
    </property>
+   <widget class="QMenu" name="menu">
+    <property name="title">
+     <string>离线识别</string>
+    </property>
+    <widget class="QMenu" name="menu_3">
+     <property name="title">
+      <string>视频文件</string>
+     </property>
+     <addaction name="actionopenVideo"/>
+     <addaction name="actioncloseVideo"/>
+    </widget>
+    <widget class="QMenu" name="menu_4">
+     <property name="title">
+      <string>图片文件</string>
+     </property>
+     <addaction name="actionopenImage"/>
+    </widget>
+    <addaction name="menu_4"/>
+    <addaction name="menu_3"/>
+   </widget>
+   <widget class="QMenu" name="menu_2">
+    <property name="title">
+     <string>在线识别</string>
+    </property>
+    <addaction name="actionopenCam"/>
+    <addaction name="actioncloseCam"/>
+   </widget>
+   <widget class="QMenu" name="menu_5">
+    <property name="title">
+     <string>录制</string>
+    </property>
+    <addaction name="actionbeginRecoding"/>
+    <addaction name="actionendRecoding"/>
+   </widget>
+   <widget class="QMenu" name="menu_6">
+    <property name="title">
+     <string>帮助</string>
+    </property>
+    <addaction name="actionabout"/>
+    <addaction name="actioninstructions"/>
+   </widget>
+   <addaction name="menu"/>
+   <addaction name="menu_2"/>
+   <addaction name="menu_5"/>
+   <addaction name="menu_6"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionopencamera">
+   <property name="text">
+    <string>打开摄像头</string>
+   </property>
+  </action>
+  <action name="actionopenCam">
+   <property name="text">
+    <string>打开摄像头</string>
+   </property>
+  </action>
+  <action name="actioncloseCam">
+   <property name="text">
+    <string>关闭摄像头</string>
+   </property>
+  </action>
+  <action name="actionopenVideo">
+   <property name="text">
+    <string>打开</string>
+   </property>
+  </action>
+  <action name="actioncloseVideo">
+   <property name="text">
+    <string>关闭</string>
+   </property>
+  </action>
+  <action name="actionopenImage">
+   <property name="text">
+    <string>打开</string>
+   </property>
+  </action>
+  <action name="actionbeginRecoding">
+   <property name="text">
+    <string>开始录制</string>
+   </property>
+  </action>
+  <action name="actionendRecoding">
+   <property name="text">
+    <string>结束录制</string>
+   </property>
+  </action>
+  <action name="actionabout">
+   <property name="text">
+    <string>关于</string>
+   </property>
+  </action>
+  <action name="actioninstructions">
+   <property name="text">
+    <string>使用说明</string>
+   </property>
+  </action>
  </widget>
  <resources/>
  <connections/>

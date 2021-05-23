@@ -45,9 +45,9 @@ class VideoReadThread(QThread):
                         self.capture.release()
                         print("释放")
                     break
-                time.sleep(0.02)
+                time.sleep(0.01)
                 success, frame = self.capture.read()
-                print(success)
+                # print(success)
                 orig, image, count = self.people_detect.detectVideo(frame)
                 if count > 0:
                     text = "行人碰撞预警({}人)".format(count)
